@@ -1,0 +1,5 @@
+{
+    "name": "deCONZ add-on",
+    "url": "https://github.com/lbschenkel/hass-addon-deconz",
+    "maintainer": "Leonardo Brondani Schenkel <leonardo@schenkel.net>"
+}
