@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.3-1
+
+- Save add-on data in /config/deCONZ
+- Set device / enable VNC by default
+
 ## 3.3
 
 - Fix relative to absolut device lookup

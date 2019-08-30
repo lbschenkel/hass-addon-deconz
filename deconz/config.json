@@ -1,6 +1,6 @@
 {
   "name": "deCONZ",
-  "version": "3.3",
+  "version": "3.3-1",
   "slug": "deconz",
   "description": "Control a ZigBee network with ConBee or RaspBee by Dresden Elektronik",
   "arch": ["amd64", "armhf"],
@@ -13,7 +13,7 @@
   "map": ["config:rw"],
   "ports": {
     "80/tcp": 40850,
-    "5900/tcp": null,
+    "5900/tcp": 5900,
     "8080/tcp": 40860
   },
   "ports_description": {
@@ -36,8 +36,8 @@
     "/dev/mem:/dev/mem:rw"
   ],
   "options": {
-   "device": null,
-   "vnc_password": ""
+   "device": "/dev/ttyUSB0",
+   "vnc_password": "deconz"
   },
   "schema": {
     "device": "str",
