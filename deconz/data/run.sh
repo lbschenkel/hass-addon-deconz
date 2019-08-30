@@ -8,6 +8,13 @@ udevadm trigger
 # Ensure otau folder exists
 mkdir -p "/data/otau"
 
+# Save data in /config so it's not wiped when add-on is uninstalled.
+if [ ! -e $HOME/.local/share/dresden-elektronik/deCONZ ]; then
+  mkdir -p /config/deCONZ
+  mkdir -p $HOME/.local/share/dresden-elektronik
+  ln -s /config/deCONZ ~/.local/share/dresden-elektronik/deCONZ
+fi
+
 # shellcheck disable=SC1091
 . /discovery.sh
 
