@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.3-2
+
+- Bump deCONZ to 2.05.69
+
 ## 3.3-1
 
 - Save add-on data in /config/deCONZ
