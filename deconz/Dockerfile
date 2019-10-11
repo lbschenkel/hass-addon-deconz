@@ -31,14 +31,9 @@ RUN apt-get update \
         xfonts-base \
         xfonts-scalable \
     && rm -rf /var/lib/apt/lists/* \
-    \
-    && curl -L https://github.com/gentoo/eudev/archive/master.tar.gz | tar -xz \
-    && cp eudev-master/rules/* /etc/udev/rules.d/ \
-    && rm -rf eudev-master \
-    \
     && if [ "${BUILD_ARCH}" = "armhf" ]; \
         then \
-            curl -q -L -o /wiringpi.deb https://unicorn.drogon.net/wiringpi-2.46-1.deb \
+            curl -q -L -o /wiringpi.deb https://project-downloads.drogon.net/wiringpi-latest.deb \
             && dpkg -i /wiringpi.deb \
             && rm -rf /wiringpi.deb; \
         fi
@@ -47,7 +42,10 @@ RUN apt-get update \
 ARG DECONZ_VERSION
 RUN if [ "${BUILD_ARCH}" = "armhf" ]; \
         then \
-            curl -q -L -o /deconz.deb https://www.dresden-elektronik.de/deconz/raspbian/beta/deconz-${DECONZ_VERSION}-qt5.deb; \
+            curl -q -L -o /deconz.deb https://www.dresden-elektronik.de/rpi/deconz/beta/deconz-${DECONZ_VERSION}-qt5.deb; \
+        elif [ "${BUILD_ARCH}" = "aarch64" ]; \
+        then \
+            curl -q -L -o /deconz.deb https://www.dresden-elektronik.de/rpi/deconz/alpha/deconz_${DECONZ_VERSION}-debian-stretch-beta_arm64.deb; \
         else \
             curl -q -L -o /deconz.deb https://www.dresden-elektronik.de/deconz/ubuntu/beta/deconz-${DECONZ_VERSION}-qt5.deb; \
         fi \
