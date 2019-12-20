@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.1
+
+- Change internal API port back to 40850, to prevent issue with discovery
+
+## 4.0
+
+- Bump deCONZ to 2.05.72
+- Add support for Hass.io Ingress
+- Improve auto discovery handling
+- Remove support for UPnP
+
+## 3.9
+
+- Adds support for enabling UPnP
+- Improve waiting for udev devices mechanism
+
 ## 3.8
 
 - Bump deCONZ to 2.05.71
