@@ -103,6 +103,8 @@ bashio::net.wait_for 40850
 
 # Start Nginx proxy
 bashio::log.info "Starting Nginx..."
+ingress_entry=$(bashio::addon.ingress_entry)
+sed -i "s#%%ingress_entry%%#${ingress_entry}#g" /etc/nginx/nginx.conf
 nginx &
 WAIT_PIDS+=($!)
 
@@ -127,6 +129,10 @@ deCONZ-otau-dl.sh &> /dev/null &
 # Start OTA updates for IKEA
 bashio::log.info "Running the IKEA OTA updater..."
 ika-otau-dl.sh &> /dev/null &
+
+# Start OTA updates for LEDVANCE/OSRAM
+bashio::log.info "Running the LEDVANCE/OSRAM OTA updater..."
+ledvance-otau-dl.sh &> /dev/null &
 
 # Wait until all is done
 bashio::log.info "deCONZ is set up and running!"
